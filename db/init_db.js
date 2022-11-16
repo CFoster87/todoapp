@@ -32,7 +32,8 @@ async function buildTables() {
             CREATE TABLE list_items (
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(255) NOT NULL,
-                "listId" INTEGER NOT NULL REFERENCES user_lists (id)
+                "listId" INTEGER NOT NULL REFERENCES user_lists (id),
+                "isComplete" BOOLEAN DEFAULT false,
 
             );
         `)
