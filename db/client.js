@@ -1,22 +1,22 @@
-const { Client } = require('pg')
+const { Client } = require("pg");
 
-const DB_NAME = 'pern-todo-app'
+const DB_NAME = "pern_todo";
 
 const DB_URL =
-    process.env.DATABASE_URL || `postgress://localhost:5432/${DB_NAME}`
+  process.env.DATABASE_URL || `postgres://localhost:5432/${DB_NAME}`;
 
 let client;
 
 if (process.env.CI) {
-    client = new Client({
-        host: 'localhost',
-        port: 5432,
-        user: 'postgres',
-        password: 'postgres',
-        database: 'postgres',
-    })
+  client = new Client({
+    host: "localhost",
+    port: 5432,
+    user: "postgres",
+    password: "postgres",
+    database: "postgres",
+  });
 } else {
-    client = new Client(DB_URL)
+  client = new Client(DB_URL);
 }
 
-module.eports = client;
+module.exports = client;
