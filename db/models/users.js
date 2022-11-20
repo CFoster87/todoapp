@@ -23,7 +23,7 @@ async function createUser(username, email, password) {
       [username, email, hashedPassword]
     );
     delete user.password;
-    return user;
+    return user.rows;
   } catch (err) {
     console.log(err, "error");
   }
